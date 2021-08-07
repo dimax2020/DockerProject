@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+    handler:
+        build: GolangService/
+        command: go run /app/main.go
+        ports:
+            - 55655:55655
+        volumes:
+            - PipeVolume:/app/pipeVolume
+    server:
+        build: PythonService/
+        command: python ./main.py
+        depends_on:
+            - handler
+        volumes:
+            - PipeVolume:/pipeVolume
+volumes:
+    PipeVolume:
