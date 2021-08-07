@@ -1,4 +1,4 @@
 # DockerProject
 
-sudo docker-compose build\n
+sudo docker-compose build  
 sudo docker-compose up
